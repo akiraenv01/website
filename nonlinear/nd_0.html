@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!--
+make 2020/11/5
+upgrade 2026/01/01 
+-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+   非線型力学で何をする
+  </title>
+  <!--
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>  
+  <base href="https://akiraenv01.github.io/website/nonlinear/">
+  <meta name="author" content="Ak!ra Watanabe">
+  <meta name="keywords" content="nonlinear,discrete dynamical system,離散力学系">
+</head>
+
+<body>
+<!--facebook-->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+	src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0"
+	nonce="kJy0ibjj">
+</script>
+
+<!--content-->
+<div align="center">
+<h1>非線型力学で何をする</h1>
+ <table width="800">
+ <tr>
+ <td>
+   非線型力学（Nonlinear dynamics）はある物理量の時間変化を追います。ある物理量は何でも構いません。電流でも生物の個体数密度でも、感染症の感染者数でも。それが何かの規則に従うとします。<br><br>
+   例えばある時刻\(t\)に、ある生物が\(X_{t}\)だけいるとします。単位は頭でも、匹でも何でもいいです。次の時刻\(t+1\)での生物の数\(X_{t+1}\)は次で決まるとします。
+ </td>
+ </tr>
+ </table>
+<br>
+
+\(X_{t+1}=2X_{t}\)　　
+<br>
+<br>
+ <table width="800">
+ <tr>
+ <td>
+   つまり次の時刻で生物数は今の\(2\)倍になるということです。時間が充分過ぎてこれがずっと繰り返されると生物数は無限大になります。<br><br>
+   次の例はどうでしょうか。
+ </td>
+ </tr>
+ </table>
+<br>
+
+\(X_{t+1}=0.5X_{t}\)　
+ 
+ <table width="800">
+ <tr>
+   <td>
+     <br>
+   次の時刻で生物数は今の半分になるということです。時間が充分過ぎると\(0.5 \times 0.5 \times 0.5 \times \cdots \approx 0\)なので生物数は\(0\)になります。つまり絶滅します。<br>
+   <br>
+   係数\(a\)を持ってきて場合分けをしてまとめてみます。
+ </td>
+ </tr>
+ </table>
+ <br>
+ \(X_{t+1}=aX_{t}\) （但し最初の時刻の生物数\(X_{0}\)は正の数と仮定）<br><br>
+ 　　時間が充分過ぎると <br>
+ \(a>1\)のとき　　生物数は無限大、つまり\(\lim_{t \to \infty}X_{t}=\infty\)<br>
+ \(a=1\)のとき　　生物数は変化しない、つまり\(\lim_{t \to \infty}X_{t}=X_{0}\)<br>
+ \(a<1\)のとき　　生物は絶滅する、つまり\(\lim_{t \to \infty}X_{t}=0\)<br>
+ 
+ <table width="800">
+ <tr>
+ <td>
+   <br>
+<br>
+  それではもしも次の例のように\(a\)が定数でなかったらどうなるのでしょうか。
+ </td>
+ </tr>
+ </table>
+ <br>
+ \(X_{t+1}=0.02(100-X_{t})X_{t}\) （但し最初の時刻の生物数\(X_{0}\)は正の数と仮定）
+ 
+  <table width="800">
+ <tr>
+ <td>
+   <br>
+ \(X_{0}\)に具体的な数を入れて調べてみます。
+ </td>
+ </tr>
+ </table>
+  <br>
+  \(X_{0}=10\)ならば<br>　
+  \(X_{1}=0.02 \times (100-10)\times 10=18\)、<br>
+  \(X_{2}=0.02 \times (100-18)\times 18=29.5 \cdots\)、<br>
+  \(X_{3}=0.02 \times (100-29.5\cdots)\times 29.5\cdots=41.6\cdots\)、<br>
+  \(X_{4}=0.02 \times (100-41.6\cdots)\times 41.6 \cdots=48.5 \cdots \)、<br>
+  \(X_{5}=0.02 \times (100-48.5\cdots)\times 48.5 \cdots=49.9 \cdots \)、<br>
+  <br>
+  \(X_{0}=80\)ならば<br>　
+  \(X_{1}=0.02 \times (100-80)\times 80=32\)、<br>
+  \(X_{2}=0.02 \times (100-32)\times 32=43.5 \cdots\)、<br>
+  \(X_{3}=0.02 \times (100-43.5\cdots)\times 43.5\cdots=49.1\cdots\)、<br>
+  \(X_{4}=0.02 \times (100-49.1\cdots)\times 49.1 \cdots=49.9 \cdots \)、<br>
+  <table width="800">
+ <tr>
+ <td>
+   <br>
+   どうやら\(\lim_{t \to \infty}X_{t}=50\)になりそうです。では\(X_{0}=50\)ならば、
+ </td>
+ </tr>
+ </table>
+    <br>
+   \(X_{1}=0.02 \times (100-50)\times 50=50\)、<br>
+ <table width="800">
+ <tr>
+ <td>
+   <br>
+   となり、\(\lim_{t \to \infty}X_{t}=50\)です。次のページで詳しく調べてみます。
+ </td>
+ </tr>
+ </table>
+  
+<!--
+ <table width="800">
+ <tr>
+ <td>
+   <br>
+   
+ </td>
+ </tr>
+ </table>
+ -->
+
+</div>
+
+<!--
+\begin{align*}
+  \sin(2016^\circ) & =\sin(11.2\pi)  \\
+                   & \approx -\sin(0.2\pi)  \\
+                   & \approx -(0.2\pi -\frac{(0.2\pi)^3}{3!})  \\
+                   & \approx -(0.628-\frac{(0.628)^3}{3!})  \\
+                   & \approx -0.586978
+\end{align*}
+-->
+
+<br>
+<div align="center">
+<!--twitter-->
+<a href="https://twitter.com/share"
+   class="twitter-share-button"
+   data-url="https://www.cottonpot01.com/nonlinear/nd_0.html"
+   data-text="">Tweet
+</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);
+  js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+  fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<br>
+
+<!--facebook-->
+<div class="fb-like"
+     data-href="https://www.cottonpot01.com/nonlinear/nonlinear.html"
+     data-width=""
+     data-layout="box_count"
+     data-action="like"
+     data-size="small"
+     data-share="true">
+</div>
+<br>
+<br>
+
+<a href="nd_1.html">
+<font color="#33bb00">
+ 次のページへ進む
+</font>
+</a>
+<br><br>
+<a href="nonlinear.html">
+<font color="#33bb00">
+「我流の非線型物理学」へ戻る
+</font>
+</a>
+<br>
+<br>
+<br>
+
+</div>
+</body>
+</html>
