@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!--
+make 2018/8/12
+upgrade 2026/01/01
+-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+   自然対数の底 e を分数で近似する
+  </title>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>  
+  <base href="https://akiraenv01.github.io/website/research/">
+  <meta name="author" content="Ak!ra Watanabe">
+  <meta name="keywords" content="Ak!ra Watanabe,自由研究,手計算で近似する,自然対数,ネイピア数">
+</head>
+
+<body>
+<!--facebook-->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+	src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0"
+	nonce="kJy0ibjj">
+</script>
+
+<!--content-->
+<div align="center">
+<h1>自然対数の底 \(e\) を分数で近似する</h1>
+<br>
+<br>
+ <table width="800">
+  <tr>
+  <td>
+自然対数の底 \(e\) は無理数、つまり自然数 \(m\) 、 \(n\) を用いて \(\frac{m}{n}\) の形で表すことが出来ない。
+しかし、近似はいくらでも出来る。
+そこで今回は、（二桁の自然数）/（二桁の自然数）という形の分数でどれだけ本物の \(e = 2.718 \dotsb\) に近い値を出せるか調べてみる。
+<br>
+<br>
+まず道具として次の不等式を考える。 \(a\) 、 \(b\) 、 \(c\) 、 \(d\) は自然数。\(\frac{a}{c} < \frac{b}{d}\)のとき以下の不等式が成立する。（証明は省略）
+ </td>
+ </tr>
+ </table>
+
+<br>
+<br>
+\(\frac{a}{c} < \frac{a+b}{c+d} < \frac{b}{d}\)
+<br>
+<br>
+
+ <table width="800">
+  <tr>
+  <td>
+次のアルゴリズムで解く。<br>
+<br>
+１. \(\frac{a}{c} < e < \frac{b}{d}\)となるような自然数 \(a\) 、 \(b\) 、 \(c\) 、 \(d\) を適当に選ぶ。 <br>
+<br>
+2. \(\frac{a+b}{c+d} \)を計算する。 分子か分母の数が三桁の数になればそこで終了。そうでなければ 3 へ進む。<br>
+<br>
+3. \(e < \frac{a+b}{c+d} \) ならば \(\frac{b}{d} = \frac{a+b}{c+d} \)、 \( \frac{a+b}{c+d} < e \) ならば \(\frac{a}{c} = \frac{a+b}{c+d} \) とする。 2 に戻る。
+ </td>
+ </tr>
+ </table>
+
+<br>
+<br>
+手始めに例として
+\(\frac{27}{10} < e < \frac{28}{10}\)
+であること利用する。すると、<br>
+<br>
+\(\frac{27+28}{10+10}=\frac{55}{20}=2.75 \)
+であるから、<br>
+<br>
+\(\frac{27}{10} < e < \frac{55}{20}\)
+<br>
+<br>
+\(\frac{27+55}{10+20}=\frac{82}{30}=2.733 \dotsb \)
+であるから、<br>
+<br>
+\(\frac{27}{10} < e < \frac{82}{30}\)
+<br>
+<br>
+\(\frac{27+82}{10+30}=\frac{109}{40}=2.725 \)
+であるから、
+<br>
+<br>
+と行きたいが、分子が三桁の数字になってしまったので、ここで終了。回答は \(\frac{82}{30}\)。 <br>
+<br>
+<br>
+<br>
+もっと良い分数を作れないだろうか。<font color="ddffff">イイ分数がほしい。 \(e\) だけに。</font> <br>
+<br>
+このアルゴリズムは計算回数が多くなるほど真の値 \(e\) に近づく。<br>
+<br>
+ならばできるだけ計算回数が多くなるような初期値を選べば良いのでは？<br>
+<br>
+よって改良した回答は以下。
+<hr>
+<br>
+\(\frac{2}{1} < e < \frac{3}{1}\)
+であること利用する。すると、<br>
+<br>
+\(\frac{2+3}{1+1}=\frac{5}{2}=2.5 \)
+であるから、<br>
+<br>
+\(\frac{5}{2} < e < \frac{3}{1}\)
+<br>
+<br>
+\(\frac{5+3}{2+1}=\frac{8}{3}=2.66 \dotsb \)
+であるから、<br>
+<br>
+\(\frac{8}{3} < e < \frac{3}{1}\)
+<br>
+<br>
+\(\frac{8+3}{3+1}=\frac{11}{4}=2.75 \)
+であるから、<br>
+<br>
+\(\frac{8}{3} < e < \frac{11}{4}\)
+<br>
+<br>
+\(\frac{8+11}{3+4}=\frac{19}{7}=2.714 \dotsb \)
+であるから、<br>
+<br>
+\(\frac{19}{7} < e < \frac{11}{4}\)
+<br>
+<br>
+\(\frac{19+11}{7+4}=\frac{30}{11}=2.727 \dotsb \)
+であるから、<br>
+<br>
+\(\frac{19}{7} < e < \frac{30}{11}\)
+<br>
+<br>
+\(\frac{19+30}{7+11}=\frac{49}{18}=2.722 \dotsb \)
+であるから、<br>
+<br>
+\(\frac{19}{7} < e < \frac{49}{18}\)
+<br>
+<br>
+\(\frac{19+49}{7+18}=\frac{68}{25}=2.72  \)
+であるから、<br>
+<br>
+\(\frac{19}{7} < e < \frac{68}{25}\)
+<br>
+<br>
+\(\frac{19+68}{7+25}=\frac{87}{32}=2.7187 \dotsb \)
+であるから、<br>
+<br>
+\(\frac{19}{7} < e < \frac{87}{32}\)
+<br>
+<br>
+<br>
+\(\frac{19+87}{7+32}=\frac{106}{39} \dotsb \)
+で、分子の数字が三桁になったので終了。<br>
+<br>
+よって回答は \(\frac{87}{32}\)。
+
+<br>
+<br>
+<br>
+<br>
+
+（回答終わり)<br>
+<br>
+<br>
+<div align="center">
+相対誤差として以下を計算し、得られた分数を吟味する。
+<br>
+\begin{align*}
+  \left| \frac{\frac{87}{32}-e}{e} \right| \approx 1.7 \times 10^{-4}
+\end{align*}
+
+<br>
+
+ <table width="800">
+  <tr>
+  <td>
+今回は『（二桁の自然数）/（二桁の自然数）という形の分数』という条件をつけたが、それでもかなりよい値の分数を得ることが出来た。（完）
+ </td>
+ </tr>
+ </table>
+
+<br>
+<br>
+興味を持っていただけた方は、円周率 \(\pi\) などで遊んでみてください。 
+
+<br>
+<br>
+<!--twitter-->
+<a href="https://twitter.com/share"
+   class="twitter-share-button"
+   data-url="https://akiraenv01.github.io/website/research/kinji/irrational.html"
+   data-text="自然対数の底 e を分数で近似する (Ak!ra Watanabe's homepageより)">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);
+  js.id=id;
+  js.src=p+'://platform.twitter.com/widgets.js';
+  fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<br>
+
+<!--facebook-->
+<div class="fb-like"
+     data-href="https://akiraenv01.github.io/website/research/kinji/irrational.html"
+     data-width=""
+     data-layout="box_count"
+     data-action="like"
+     data-size="small"
+     data-share="true">
+</div>
+<br>
+<br>
+
+<a href="research.html">
+<font color="#33bb00">
+「手計算で近似する」へ戻る
+</font>
+</a>
+<br>
+<br>
+<br>
+
+</div>
+</body>
+</html>
+
