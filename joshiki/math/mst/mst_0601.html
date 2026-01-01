@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!--
+make 2017/2/9
+upgrade 2026/01/01
+-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+   変数を減らす（Fewer variables） 例題１
+  </title>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta name="author" content="Ak!ra Watanabe">
+  <meta name="keywords" content="小中学校で学びたかった,算数,数学">
+  <base href="https://akiraenv01.github.io/website/joshiki/math/">
+</head>
+
+<body>
+<!--facebook-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!--content-->
+<div align="center">
+<h1>
+変数を減らす（Fewer variables） 例題１
+</h1>
+ 
+<br>
+<br>
+ <table width="800">
+ <tr>
+ <td>
+<b>変数を減らす（Fewer variables）</b>...<br>
+変数が一個の時は考え易いですが、変数が二個以上になると、途端に複雑になり、考えづらくなります。
+ここでは変数を減らす効果とその方法について研究します。<br>
+<br>
+（例題）<br>
+ある文房具屋でＡとＢは買い物をしました。Ａは鉛筆２本と消しゴム１個を買い、合計で１４０円かかりました。
+Ｂは鉛筆５本と消しゴム３個を買って、合計４００円かかりました。鉛筆１本の値段と消しゴム１個の値段を求めてください。 <br>
+<br>
+（考え方）<br>
+この問題を式に整理すると<br>
+<br>
+（鉛筆１本の値段） \(\times 2\) 個 \(+\) （消しゴム１個の値段） \(\times 1\) 個 \(= 140\) 円 ... (1) <br>
+（鉛筆１本の値段） \(\times 5\) 個 \(+\) （消しゴム１個の値段） \(\times 3\) 個 \(= 400\) 円 ... (2) <br>
+<br>
+<br>
+となります。この問題では、鉛筆１本の値段と消しゴム１個の値段という二つの値がわかりません。もし上の式が、<br>
+<br>
+（鉛筆１本の値段） \(\times 2\) 個 \(= ***\) 円 <br>
+<br>
+もしくは<br>
+<br>
+（消しゴム１個の値段） \(\times 3\) 個 \(= $$$\) 円 <br>
+<br>
+という形であれば、答えは直ちにわかります。<b>なので、工夫することで問題を自分がわかる形へ帰着させます。
+</b>今回は、その一つの工夫の手段として、『変数を減らす』ことをします。<br>
+ここで、買った消しゴムの個数に着目します。Ｂが消しゴムを３個買っているので、Ａが鉛筆６本と消しゴム３個を買ったとします。
+すると、合計金額は元の３倍かかります。<br>
+<br>
+ \((\) （鉛筆１本の値段） \(\times 2\) 個 \(+\) （消しゴム１個の値段） \(\times 1\) 個 \() \times 3= 140 \times 3 \) 円 <br>
+<br>
+（鉛筆１本の値段） \(\times 6\) 個 \(+\) （消しゴム１個の値段） \(\times 3\) 個 \(= 420\) 円 ... (1'  )<br>
+<br>
+<br>
+ここで (2)式と (1' )式を比べると、鉛筆を１本多く買っている分だけ合計金額が２０円高くなっていることがわかります。つまり、<br>
+<br>
+（鉛筆１本の値段） \( = 20\) 円 <br>
+<br>
+であることがわかります。あとは(1)式から <br>
+<br>
+\(20\) 円 \(\times 2\) 個 \(+\) （消しゴム１個の値段） \(\times 1\) 個 \(= 140\) 円 <br>
+<br>
+（消しゴム１個の値段） \( = 100\) 円 <br>
+<br>
+であることがわかります。<br>
+<br>
+<br>
+※もちろん連立方程式がわかる方なら、鉛筆１本の値段を \(x\) 、消しゴム１個の値段を \(y\) として<br>
+<br>
+\begin{equation*}
+ \begin{cases}
+  2x + y = 140 \\
+  5x + 3y =400
+ \end{cases} 
+\end{equation*}
+<br>
+という連立方程式を解いても同じ解を得ます。
+ただし、そのときに加減法か代入法のいずれを用いても、結局は \(x\) か \(y\) のどちらかの『変数を減らす』ことで解を導いていることに注意しましょう。
+根本には同じ方針が貫かれているのです。
+ </td>
+ </tr>
+ </table>
+
+<br>
+
+<!--twitter-->
+<a href="https://twitter.com/share"
+   class="twitter-share-button"
+   data-url="https://akiraenv01.github.io/website/joshiki/math/mst/mst_0601.html"
+   data-text="数学の方略 「変数を減らす(Fewer variables)」　例題１ (Ak!ra Watanabe's homepageより)">Tweet
+</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);
+  js.id=id;
+  js.src=p+'://platform.twitter.com/widgets.js';
+  fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<br>
+
+<!--facebook-->
+<div class="fb-like"
+     data-href="https://akiraenv01.github.io/website/joshiki/math/mst/mst_0601.html"
+     data-width=""
+     data-layout="box_count"
+     data-action="like"
+     data-size="small"
+     data-share="true">
+</div>
+<br>
+<br>
+
+<!--content-->
+<a href="math_strategy.html">
+<font color="#33bb00">
+数学の方略（ほうりゃく）へ戻る
+</font>
+</a>
+<br>
+<br>
+<br>
+
+</div>
+</body>
+</html>
