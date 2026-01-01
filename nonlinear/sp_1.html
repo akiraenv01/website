@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!--
+make 2025/3/15
+upgrade 2026/01/01 
+-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+   複雑ネットワーク上の感染症モデル
+  </title>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>  
+  <base href="https://akiraenv01.github.io/website/nonlinear/">
+  <meta name="author" content="Ak!ra Watanabe">
+  <meta name="keywords" content="nonlinear,複雑ネットワーク,統計物理学">
+</head>
+
+<body>
+<!--facebook-->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+	src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0"
+	nonce="kJy0ibjj">
+</script>
+
+<!--content-->
+<div align="center">
+<h1>
+   複雑ネットワーク上の感染症モデル
+</h1>
+ <table width="800">
+ <tr>
+ <td>
+複雑ネットワーク（complex network）は点（node、vertex）と辺（edge、link）から構成されています。
+辺で繋がっている点と点の相互作用を考え、それが多数になると全体の挙動がどうなるかを調べます。
+<br>
+<img src="image/complex_network.png" alt="画像が表示されていません" width="400" height="300">
+<br>
+<br>
+感染症は単に感染者と免疫を持たない非感染者がつながっていると非感染者も感染者になるというイメージです。
+感染者も次の時間にある確率で回復者になります。点の数が２，３個ならこれだけのことです。
+しかし点の数が1万や10万個になったら全体的な感染者の増減はどうなるでしょう。
+このように部分的には単純な機構が、多数集まるとどのような挙動を示すかを調べることが統計物理学の対象になります。
+以下のようなアルゴリズムを考えてみます。
+<br>
+<br>
+各nodeは未感染者、感染者、回復者の内のいずれかを表すとし、edgeで任意に接続されたネットワークを構成している。
+
+ </td>
+ </tr>
+ </table>
+<br>
+\(S + I \to 2S\) (\(確率\beta\))<br>
+\(I \to R\) (\(確率\gamma\))<br>
+<br>
+ <table width="800">
+ <tr>
+ <td>
+STEP1: 未感染者S、感染者I、回復者Rをnodeとし、任意に接続されたネットワーク上にランダムに配置する。
+<br>
+STEP2: ネットワーク上の一つのノードを選び、もしそれが
+<br>
+未感染者Sならばそのnodeにつながる別のnodeを一つ選び、
+<br>
+それがもし感染者Iならば、確率βで初めに選んだnodeを感染者Iに変える。
+<br>
+感染者Iならば、γの確率でそのnodeを回復者Rに変える。
+<br>
+（SIRS モデルのみ）回復者Rならば確率μでそのnodeを未感染者Sに変える。
+<br>
+STEP3: STEP2をネットワーク上の全node数だけ行い、それを1 Time stepとする。
+<br>
+STEP4: STEP2とSTEP3を任意のTime step回実行する。
+</td>
+ </tr>
+ </table>
+ 
+<img src="image/algorithm.png" alt="画像が表示されていません" width="600" height="450">
+
+ <table width="800">
+ <tr>
+ <td>
+10000個のnodeを用いて、全てのnodeがedgeで結ばれた完全グラフで上記のアルゴリズムを行った結果が図です。
+常微分方程式（Ordinary Differntial Equation, ODE）のSIRモデルやSIRSモデルの結果と良い一致が見られます。
+ </td>
+ </tr>
+ </table>
+ 
+<h3>SIR モデル</h3>
+<br>
+\begin{equation}
+\begin{cases}
+ \frac{dS}{dt}=-\beta SI \\
+ \frac{dI}{dt}= \beta SI -\gamma I \\
+ \frac{dR}{dt}= \gamma I 
+\end{cases}
+\end{equation}  
+<img src="image/SIR_vs_complex_network.png" alt="画像が表示されていません" width="600" height="450">
+<br>
+<h3>SIRS モデル</h3>
+<br>
+\begin{equation}
+\begin{cases}
+ \frac{dS}{dt}=-\beta SI \\
+ \frac{dI}{dt}= \beta SI - \gamma I \\
+ \frac{dR}{dt}= \gamma I - \mu R
+\end{cases}
+\end{equation}  
+<img src="image/SIRS_vs_complex_network.png" alt="画像が表示されていません" width="600" height="450">
+
+ <table width="800">
+ <tr>
+ <td>
+   <br>
+ </td>
+ </tr>
+ </table>
+<br>
+
+<!--
+ <table width="800">
+ <tr>
+ <td>
+   <br>
+   
+ </td>
+ </tr>
+ </table>
+ -->
+
+</div>
+
+<!--
+\begin{align*}
+  \sin(2016^\circ) & =\sin(11.2\pi)  \\
+                   & \approx -\sin(0.2\pi)  \\
+                   & \approx -(0.2\pi -\frac{(0.2\pi)^3}{3!})  \\
+                   & \approx -(0.628-\frac{(0.628)^3}{3!})  \\
+                   & \approx -0.586978
+\end{align*}
+-->
+
+<br>
+<div align="center">
+<!--twitter-->
+<a href="https://twitter.com/share"
+   class="twitter-share-button"
+   data-url="https://akiraenv01.github.io/website/nonlinear/sp_1.html"
+   data-text="">Tweet
+</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);
+  js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+  fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<br>
+
+<!--facebook-->
+<div class="fb-like"
+     data-href="https://akiraenv01.github.io/website/nonlinear/sp_1.html"
+     data-width=""
+     data-layout="box_count"
+     data-action="like"
+     data-size="small"
+     data-share="true">
+</div>
+<br>
+<br>
+
+<!--
+<a href=".html">
+<font color="#33bb00">
+-->
+ 次のページへ進む
+<!--
+</font>
+</a>
+-->
+<br><br>
+<a href="nonlinear.html">
+<font color="#33bb00">
+「我流の非線型物理学」へ戻る
+</font>
+</a>
+<br>
+<br>
+<br>
+
+</div>
+</body>
+</html>
