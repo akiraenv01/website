@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!--
+make 2017/2/9
+upgrade 2026/01/01
+-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+  再形式化（Reformation） 例題１
+  </title>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta name="author" content="Ak!ra Watanabe">
+  <meta name="keywords" content="小中学校で学びたかった,算数,数学">
+  <base href="https://akiraenv01.github.io/website/joshiki/math/">
+</head>
+
+<body>
+<!--facebook-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!--content-->
+<div align="center">
+<h1>
+  再形式化（Reformation） 例題１
+</h1>
+ 
+<br>
+<br>
+ <table width="800">
+ <tr>
+ <td>
+<b>再形式化（Reformation）</b> ...<br>
+問題を解くときに「何か工夫して省力化できないか」と考えることは大切です。
+そのままだと解くのが難しい問題も、解き易い形に変形することで解決できる事もあります。<br>
+<br>
+（例題）<br>
+\begin{equation*}
+  \frac{1}{1 \times 2} + \frac{1}{2 \times 3} + \frac{1}{3 \times 4} + \frac{1}{4 \times 5} + \frac{1}{5 \times 6}  
+\end{equation*}
+
+を解いてください。<br>
+<br>
+（考え方）<br>
+もちろん<br>
+\begin{equation*}
+ \text{(与式)}  
+ = \frac{3 \times 4 \times 5 \times 6 + 1 \times 4 \times 5 \times 6 + 1 \times 2 \times 5 \times 6 + 1 \times 2 \times 3 \times 6 + 1 \times 2 \times 3 \times 4}{1 \times 2 \times 3 \times4 \times 5 \times 6}  
+\end{equation*}
+
+というように通分して解いてもよいのですが、計算が面倒なので、解き易い形に問題を変形できないか工夫してみます。<br>
+そこで、<br>
+<br>
+\begin{eqnarray*}
+  \frac{1}{1 \times 2} = \frac{1}{1} - \frac{1}{2} \\
+  \frac{1}{2 \times 3} = \frac{1}{2} - \frac{1}{3} \\
+  \frac{1}{3 \times 4} = \frac{1}{3} - \frac{1}{4} \\
+  \frac{1}{4 \times 5} = \frac{1}{4} - \frac{1}{5} \\
+  \frac{1}{5 \times 6} = \frac{1}{5} - \frac{1}{6} 
+\end{eqnarray*}
+<br>
+という関係を使うと、<br>
+
+\begin{equation*}
+ \begin{split}
+  \text{(与式)} &= \left(\frac{1}{1} - \frac{1}{2} \right) + \left(\frac{1}{2} - \frac{1}{3} \right) + \left(\frac{1}{3} - \frac{1}{4} \right) + \left(\frac{1}{4} - \frac{1}{5} \right) + \left(\frac{1}{5} - \frac{1}{6} \right) \\
+                &= \frac{1}{1} - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} + \frac{1}{3} - \frac{1}{4} + \frac{1}{4} - \frac{1}{5} + \frac{1}{5} - \frac{1}{6} \\
+                &= \frac{1}{1} - \frac{1}{6} \\
+                &= \frac{5}{6}  
+
+ \end{split}
+\end{equation*}
+
+このように計算量を少なくして解を導くことができます。
+今回はたまたま「工夫して省力化でき」ましたが、実際はそううまくはいかないことも多いです。
+その際には粘り強く地道に立ち向かう姿勢が必要になることも忘れないようにしたいものです。
+ </td>
+ </tr>
+ </table>
+
+<br>
+
+<!--twitter-->
+<a href="https://twitter.com/share"
+   class="twitter-share-button"
+   data-url="https://akiraenv01.github.io/website/joshiki/math/mst/mst_1101.html"
+   data-text="数学の方略 「再形式化（Reformation）」 例題１ (Ak!ra Watanabe's homepageより)">Tweet
+</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);
+  js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+  fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<br>
+
+<!--facebook-->
+<div class="fb-like"
+     data-href="https://akiraenv01.github.io/website/joshiki/math/mst/mst_1101.html"
+     data-width=""
+     data-layout="box_count"
+     data-action="like"
+     data-size="small"
+     data-share="true">
+</div>
+<br>
+<br>
+
+<!--content-->
+<a href="math_strategy.html">
+<font color="#33bb00">
+数学の方略（ほうりゃく）へ戻る
+</font>
+</a>
+<br>
+<br>
+<br>
+
+</div>
+</body>
+</html>
