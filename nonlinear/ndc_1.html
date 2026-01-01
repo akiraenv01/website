@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!--
+make 2020/11/5
+upgrade 2026/01/01
+-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+   連続型の動力学を考える
+  </title>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <base href="https://akiraenv01.github.io/website/nonlinear/">
+  <meta name="author" content="Ak!ra Watanabe">
+  <meta name="keywords" content="nonlinear dynamics,continuous dynamical system,連続力学系">
+</head>
+
+<body>
+<!--facebook-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!--content-->
+<div align="center">
+<h1>連続型の動力学を考える</h1>
+
+ <table width="800">
+ <tr>
+ <td>
+   次のような微分方程式があったとします。<br>
+ </td>
+ </tr>
+ </table>
+<br>
+
+\(\dfrac{dx(t)}{dt}=v\)　\(x(0)=X_{0}\)　
+<br>
+<br>
+ <table width="800">
+ <tr>
+ <td>
+ここで\(t\)は時間、\(x(t)\)は時刻\(t\)でのある物体の位置の座標、\(v\)は定数とします。<br>
+<br>
+この点は時刻が \(0\) の時は\(X_{0}\)にあって速度\(v\)で一直線上を進んでいきます｡
+時刻が\(T(>0)\)の時この点はどこにあると訊かれたら、速度\(v\)で時間\(T\)だけ進んだのだから、最初の点\(X_{0}\)より\(vT\)だけ動いているはずです。つまりは<br>
+ </td>
+ </tr>
+ </table>
+\(x(T)=X_{0}+vT\)
+ 
+ <table width="800">
+ <tr>
+ <td>
+   で表されます。<br>
+   次の微分方程式はどうでしょうか｡
+ <br>  
+ </td>
+ </tr>
+ </table>
+     \(\dfrac{dx(t)}{dt}=v(t)\)　\(x(0)=X_{0}\)　
+ <table width="800">
+ <tr>
+ <td>
+ <br>
+   ここで\(t\)は時間、\(x(t)\)は時刻\(t\)でのある点の位置の座標、\(v(t)\)は時刻\(t\)での関数で\(v(t)=t\)とします。<br>
+<br>
+  時刻が\(T(>0)\)の時この点はどこにあると訊かれたら、これも先程と同様に
+ </td>
+ </tr>
+ </table>
+ <br>
+ \(x(T)=X_{0}+v(T)T=X_{0}+T^{2}\)
+ 
+  <table width="800">
+ <tr>
+ <td>
+   <br>
+   と答えてよいでしょうか。<b>ダメです。</b><br>
+   <br>
+   なぜか。速度が時間に対して一定ではなく、変化しているからです。<br><br>
+   時刻\(0\)から時刻\(T\)までの時間を\(N\)等分して（いきなり\(N\)等分と考えるのが大変であれば、まず4等分や5等分で考えてみましょう。）､
+ </td>
+ </tr>
+  </table>
+  \(\Delta t=\dfrac{T}{N}\)
+  <table width="800">
+ <tr>
+ <td>
+   <br>
+   とします。そして、物体は
+    </td>
+ </tr>
+  </table>
+  時刻\(0\)から時刻\(\Delta t\)の間は速度\(v(\Delta t)\)、<br>
+  時刻\(\Delta t\)から時刻\(2\Delta t\)の間は速度\(v(2\Delta t)\)、<br>
+  ・・・、<br>
+  時刻\((N-2)\Delta t\)から時刻\((N-1)\Delta t\)の間は速度\(v((N-1)\Delta t)\)、<br>
+  時刻\((N-1)\Delta t\)から時刻\(T (= N \Delta t)\)の間は速度\(v(N\Delta t)\)<br>
+ <table width="800">
+ <tr>
+ <td>
+   <br>
+     で運動すると考えてみます。後で\(N\)の値を大きくすることで\(\Delta t\)を小さくすれば、求めたい物体の位置\(X(T)\)がわかるはずです。
+ </td>
+ </tr>
+ </table>
+\begin{align*}
+  X(0) & = X_{0}  \\
+ X(\Delta t) & = X(0)+v(\Delta t)\Delta t  \\
+   X(2\Delta t) & = X(\Delta t)+v(2\Delta t)\Delta t   \\
+  &= \cdots \\
+ X\left((N-1)\Delta t \right) & = X\left((N-2)\Delta t\right)+v\left((N-1)\Delta t\right)\Delta t   \\
+  X(N\Delta t) & = X\left((N-1)\Delta t\right)+v(N\Delta t)\Delta t   \\
+ \end{align*}
+ 両辺を足し合わせると、<br><br>
+ \(X(T)=X_{0}+v(\Delta t)\Delta t+v(2\Delta t)\Delta t+ \cdots + v\left((N-1)\Delta t\right)\Delta t+v(N\Delta t)\Delta t\)<br><br>
+ よって式を整理して、\(v(t)=t\)であったことを利用すると
+ \begin{align*}
+ X(T) &= X_{0}+ \left\{v(\Delta t)+v(2\Delta t)+ \cdots + v\left((N-1)\Delta t\right)+v(N\Delta t)\right\}\Delta t \\
+ &= X_{0}+ \left(\Delta t+2\Delta t+ \cdots + (N-1)\Delta t+N\Delta t\right)\Delta t \\
+ &= X_{0}+ (1+2+ \cdots + (N-1)+N) \left(\Delta t\right)^{2}
+ \end{align*}
+ ここで、\(1+2+ \cdots +(N-1)+N=\dfrac{1}{2}N(N+1)\)、  \(\Delta t=\dfrac{T}{N}\)なので、
+  \begin{align*}
+ X(T) &= X_{0}+\dfrac{1}{2}N(N+1)\dfrac{T}{N} \dfrac{T}{N}\\
+ &= X_{0}+ \dfrac{1}{2} \left(1+\dfrac{1}{N}\right) T^{2}
+ \end{align*}
+  <table width="800">
+ <tr>
+ <td>
+   <br>
+  
+ 最後に\(N \to \infty\)とすれば、求めたい物体の位置は、
+ </td>
+ </tr>
+ </table>
+   \( X_{0}+ \dfrac{1}{2}  T^{2}\)
+  <table width="800">
+ <tr>
+ <td>
+   <br>
+   であるとわかります。これを積分を使って解いてみます。元の微分方程式より、
+ </td>
+ </tr>
+  </table>
+    \begin{align*}
+     dx(t) &= v(t)dt\\
+  \int_{X_{0}}^{x(T)}dx(t)&= \int_{0}^{T}v(t)dt \\
+   \int_{X_{0}}^{x(T)}dx(t)&= \int_{0}^{T}t dt \\
+  \end{align*}
+  左辺と右辺をそれぞれ計算します。
+  \begin{align*}
+   \left[x(t)\right]_{X_{0}}^{x(T)} &= \left[\dfrac{1}{2}\right]_{0}^{T} \\
+  x(T)- X_{0}&= \dfrac{1}{2} T^{2} \\
+  x(T) &= X_{0}+ \dfrac{1}{2} T^{2} 
+  \end{align*}
+   <table width="800">
+ <tr>
+ <td>
+   <br>
+   このように、連続型の動力学を考えるときは微分や積分の知識を活用することになります。
+ </td>
+ </tr>
+ </table>
+<!--
+ <table width="800">
+ <tr>
+ <td>
+   <br>
+   
+ </td>
+ </tr>
+ </table>
+ -->
+
+</div>
+
+<!--
+\begin{align*}
+  \sin(2016^\circ) & =\sin(11.2\pi)  \\
+                   & \approx -\sin(0.2\pi)  \\
+                   & \approx -(0.2\pi -\frac{(0.2\pi)^3}{3!})  \\
+                   & \approx -(0.628-\frac{(0.628)^3}{3!})  \\
+                   & \approx -0.586978
+\end{align*}
+-->
+
+<br>
+<div align="center">
+<!--twitter-->
+<a href="https://twitter.com/share"
+   class="twitter-share-button"
+   data-url="https://akiraenv01.github.io/website/nonlinear/ndc_1.html"
+   data-text="連続型の動力学を考える　(Ak!ra Watanabe's homepageより)">Tweet
+</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);
+  js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+  fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<br>
+
+<!--facebook-->
+<div class="fb-like"
+     data-href="https://akiraenv01.github.io/website/nonlinear/ndc_1.html"
+     data-width=""
+     data-layout="box_count"
+     data-action="like"
+     data-size="small"
+     data-share="true">
+</div>
+<br>
+<br>
+
+<!--content-->
+
+<a href="ndc_2.html">
+<font color="#33bb00">
+  　次のページへ進む
+</font>
+</a>
+<br><br>
+<a href="nonlinear.html">
+<font color="#33bb00">
+「我流の非線型物理学」へ戻る
+</font>
+</a>
+<br>
+<br>
+<br>
+
+</div>
+</body>
+</html>
