@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!--
+make 2020/11/16
+upgrade 2026/01/01
+-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+   不動点を探して（前編：原始的に考える）
+  </title>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>  
+  <base href="https://akiraenv01.github.io/website/nonlinear/">
+  <meta name="author" content="Ak!ra Watanabe">
+  <meta name="keywords" content="web diagram,蜘蛛の巣図,離散力学系,discrete dynamical system">
+</head>
+
+<body>
+<!--facebook-->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+	src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0"
+	nonce="kJy0ibjj">
+</script>
+
+<!--content-->
+<div align="center">
+<h1>不動点を探して（前編：原始的に考える）</h1>
+
+ <table width="800"> 
+ <tr>
+ <td>
+前回のページの蜘蛛の巣図は､初期値から始まってある点に収束していきました。その点に到着すると、\(X_{n+1}=X_{n}\)となりそこから動かなくなります。
+ここで、関数\(f\)を用いて\(X_{n+1}=f(X_{n})\)と表される関係があるとき、
+ </td>
+ </tr>
+ </table>
+ \(X=f(X)\)
+ <table width="800"> 
+ <tr>
+ <td>
+を満たすような\(X\)を<b>不動点</b>と呼びます。例えば、<br>
+ </td>
+ </tr>
+ </table>
+ \(X_{n+1}=0.02(100-X_{n})X_{n}\)
+  <table width="800"> 
+ <tr>
+   <td>
+     <br>
+という関係があるとき、\(f(X_{n})=0.02(100-X_{n})X_{n}\)として不動点を求めると
+ </td>
+ </tr>
+ </table> 
+  \begin{align*}
+  X &= f(X) \\
+  &= 0.02(100-X)X \\
+  \end{align*}
+ <table width="800"> 
+ <tr>
+ <td>
+より
+ </td>
+ </tr>
+ </table>
+  \begin{align*}
+  0.02(50-X)X &=0 \\
+  X &=0, 50
+  \end{align*}
+ <table width="800"> 
+ <tr>
+ <td>
+   不動点は\(X=0\)、もしくは\(X=50\)であることが分かります。つまりある\(0\)以上の整数\(N\)を持ってきて\(X_{N}=0\)とすると、
+   \(X_{N+1}=0\)、\(X_{N+2}=0\)、．．．となり、\(X_{N}=50\)とすると、\(X_{N+1}=50\)、\(X_{N+2}=50\)、．．．となります。<br>
+   <br>
+   しかし、\(X_{0}=20\)や\(X_{0}=80\)から始めるとどちらも\(X=50\)に収束してゆきます。
+ </td>
+ </tr>
+ </table>
+
+  <table width="800"> 
+ <tr>
+ <td>
+   何故か\(X=0\)には収束しません。調べてみます。<br>
+   <br>
+   不動点\(X\)から微小量\(\epsilon\)だけズレた点\(X+\epsilon\)はどんな風に変化するか考えてみます。\(X_{N}=X+\epsilon\)とすると
+ </td>
+ </tr>
+  </table>
+ \begin{align*}
+  X_{N+1} &= f(X_{N}) \\
+  &= 0.02(100-X_{N})X_{N} \\
+  &= 0.02\Bigl(100-(X+\epsilon) \Bigr)(X+\epsilon) \\
+  &= 0.02(100-X)X+0.02(100-2X)\epsilon -0.02\epsilon^{2}
+  \end{align*}
+ <table width="800"> 
+ <tr>
+ <td>
+   ここで\(X\)は不動点なので\(X=0.02(100-X)X\)とすると、<br>
+   <br>
+ </td>
+ </tr>
+ </table>
+ \(X_{N+1} = X+0.02(100-2X)\epsilon -0.02\epsilon^{2}\)
+ <table width="800"> 
+ <tr>
+   <td>
+     <br>
+     この\(X_{N+1}\)は\(X_{N}\)と比べてどれくらい不動点\(X\)に近づいた、もしくは遠ざかったのでしょうか。次のように<br>
+     <br>
+ </td>
+ </tr>
+ </table>
+ （\(X_{N+1}\)と不動点\(X\)との距離）/（\(X_{N}\)と不動点\(X\)との距離）
+=\(\dfrac{|X_{N+1}-X|}{|X_{N}-X|}\)
+  <table width="800"> 
+ <tr>
+   <td>
+     <br>
+     を考えます。	
+ </td>
+ </tr>
+ </table>
+  \begin{align*}
+  \dfrac{|X_{N+1}-X|}{|X_{N}-X|} &=\Biggl|\dfrac{0.02(100-2X)\epsilon -0.02\epsilon^{2}}{\epsilon}\Biggr| \\
+ &= |0.02(100-2X) -0.02\epsilon| 
+  \end{align*}
+
+  <table width="800"> 
+ <tr>
+ <td>
+   \(X=50\)の時<br>
+ </td>
+ </tr>
+  </table>
+ \begin{align*}
+  \dfrac{|X_{N+1}-X|}{|X_{N}-X|} &=|0 -0.02\epsilon| \\
+ &= 0.02|\epsilon| 
+  \end{align*}
+ <table width="700"> 
+ <tr>
+ <td>
+ \(\epsilon\)は微小量なので、\(0.02|\epsilon|<1\)とすると、
+ </td>
+ </tr>
+ </table>
+  \begin{align*}
+  \dfrac{|X_{N+1}-X|}{|X_{N}-X|} &<1 \\
+   |X_{N}-X| &> |X_{N+1}-X|
+   \end{align*}
+ <table width="700"> 
+ <tr>
+ <td>
+これは\(X_{N+1}\)が\(X_{N}\)より不動点\(X=50\)との距離が小さいことを意味します。
+さらに、 \(|X_{N+1}-X| > |X_{N+2}-X|\) 、 \(|X_{N+2}-X| > |X_{N+3}-X|\)、．．．なので\(n\)の値が大きくなればなるほど\(X_{n}\)は不動点\(X=50\)に近づくことが分かります。 <br> 
+ </td>
+ </tr>
+ </table>
+<!--
+ \begin{align*}
+ \lim_{n \to \infty} |X_{n}-X| &=0 \\
+ \lim_{n \to \infty} X_{n} &=X =50
+   \end{align*}
+--> 
+ <table width="800"> 
+ <tr>
+   <td>
+     <br>
+ \(X=0\)の時
+ </td>
+ </tr>
+  </table>
+  \(\dfrac{|X_{n+1}-X|}{|X_{n}-X|}= |2 -0.02\epsilon|\)
+   <table width="700"> 
+ <tr>
+ <td>
+ \(\epsilon\)は微小量なので、\(|2-0.02\epsilon|>1\)とすると、
+ </td>
+ </tr>
+ </table>
+  \begin{align*}
+  \dfrac{|X_{N+1}-X|}{|X_{N}-X|} &>1 \\
+   |X_{N}-X| &< |X_{N+1}-X|
+   \end{align*}
+ <table width="700"> 
+ <tr>
+ <td>
+これは\(X_{N+1}\)が\(X_{N}\)より不動点\(X=0\)との距離が大きいことを意味します。
+さらに、 \(|X_{N+1}-X| < |X_{N+2}-X|\) 、 \(|X_{N+2}-X| < |X_{N+3}-X|\)、．．．なので\(n\)の値が大きくなればなるほど\(X_{n}\)は不動点\(X=0\)から遠ざかることが分かります。 <br> 
+ </td>
+ </tr>
+ </table>
+
+<!--
+ <table width="800"> 
+ <tr>
+ <td>
+
+ </td>
+ </tr>
+ </table>
+ -->
+
+<br>
+<!--twitter-->
+<a href="https://twitter.com/share"
+   class="twitter-share-button"
+   data-url="https://akiraenv01.github.io/website/nonlinear/nd_2.html"
+   data-text="不動点を探して（前編：原始的に考える）　(Ak!ra Watanabe's homepageより)">Tweet
+</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);
+  js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+  fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<br>
+
+<!--facebook-->
+<div class="fb-like"
+     data-href="https://akiraenv01.github.io/website/nonlinear/nd_2.html"
+     data-width=""
+     data-layout="box_count"
+     data-action="like"
+     data-size="small"
+     data-share="true">
+</div>
+<br>
+<br>
+
+<!--content-->
+ <table width="300"> 
+ <tr>
+ <td>
+<a href="nd_1.html">
+<font color="#33bb00">
+ 前のページへ戻る
+</font>
+</a>
+ </td>
+ <td>
+   
+<a href="nd_3.html">
+<font color="#33bb00">   
+  　次のページへ進む
+</font>
+</a>
+  
+ </td> 
+ </tr>
+ </table>
+<br>
+<a href="nonlinear.html">
+<font color="#33bb00">
+ 「我流の非線型物理学」へ戻る
+</font>
+</a>
+<br>
+<br>
+<br>
+
+</div>
+</body>
+</html>
