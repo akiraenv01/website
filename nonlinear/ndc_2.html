@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!--
+make 2020/11/16
+upgrade 2026/01/01
+-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+   平衡点（前編：原始的に考える）
+  </title>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <base href="https://akiraenv01.github.io/website/nonlinear/">
+  <meta name="author" content="Ak!ra Watanabe">
+  <meta name="keywords" content="平衡点,安定平衡点,不安定平衡点">
+</head>
+
+<body>
+<!--facebook-->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+	src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0"
+	nonce="kJy0ibjj">
+</script>
+
+<!--content-->
+<div align="center">
+<h1>平衡点（前編：原始的に考える）</h1>
+
+ <table width="800"> 
+ <tr>
+ <td>
+   次のような運動方程式があったとします。   
+ </td>
+ </tr>
+ </table>
+ <br>
+　　\(m\dfrac{dv(t)}{dt}=mg-kv(t)\)　　\(v(0)=V_{0}\)　\(k>0\)
+
+ <table width="800"> 
+ <tr>
+   <td>
+     <br>
+ 鉛直下向きに座標軸をとり、物体が初速度\(V_{0}\)で重力\(mg\)にひかれて空気抵抗\(-kv(t)\)を受けながら落ちてゆく運動を記述したものです。この運動方程式は解くことができて、 
+ </td>
+ </tr>
+ </table>
+
+\begin{align*}
+  m\dfrac{dv}{dt} & =mg-kv  \\
+ \dfrac{dv}{dt} & = -\dfrac{k}{m} \biggl(v-\dfrac{mg}{k} \biggr)  \\
+  \biggl(v-\dfrac{mg}{k}\biggr)^{-1} dv   & = -\dfrac{k}{m}dt  \\
+ \end{align*}
+ \(t=0\)のとき\(v=V_{0}\)、\(t=t\)のとき\(v=v(t)\)なので
+ 
+  \begin{align*}
+ \int_{V_{0}}^{v(t)}  \biggl(v-\dfrac{mg}{k}\biggr)^{-1} dv
+          & = \int_{0}^{t} \left(-\dfrac{k}{m}\right)dt  \\
+ \biggl[\ln \biggl(v-\dfrac{mg}{k}\biggr)\biggr]_{V_{0}}^{v(t)}
+ & =  -\dfrac{k}{m}t  \\
+  \ln \bigg(\biggl(v(t)-\dfrac{mg}{k}\biggr)/\biggl(V_{0}-\dfrac{mg}{k}\biggr)\bigg)
+ & =  -\dfrac{k}{m}t  \\
+   v(t)-\dfrac{mg}{k}
+          & = \biggl(V_{0}-\dfrac{mg}{k}\biggr) \exp \left(-\frac{k}{m}t \right)  \\
+ \end{align*}
+ 
+ よって
+ <br><br>
+    \(v(t)= \dfrac{mg}{k}+\biggl(V_{0}-\dfrac{mg}{k}\biggr) \exp \biggl(-\dfrac{k}{m}t \biggr)\)  
+  <table width="800"> 
+ <tr>
+ <td>
+   <br>
+  但し、\(\exp(x)=e^{x}\)とします。 終端速度\(V_{ter}\)を求めたいのなら、\(t \to \infty\)とすればよいので
+ </td>
+ </tr>
+  </table>
+  <br>
+  \(V_{ter}=\lim_{t \to \infty}v(t)=\dfrac{mg}{k}\)
+   <table width="800"> 
+ <tr>
+   <td>
+     <br>
+   しかし、実は元の運動方程式を解かなくても終端速度を求めることができます。
+     元の運動方程式で\(\dfrac{dv(t)}{dt}=0\)とおいて\(v(t)\)について解くと、  \(v(t)=\dfrac{mg}{k}\)になります。つまり、 \(v(t)=\dfrac{mg}{k}\)になれば、速度はそれ以降変化しないということです。問題はある時刻で \(v(t)=\dfrac{mg}{k}\)になるかどうかです。
+     <br><br>
+      \(V_{equ}=\dfrac{mg}{k}\)とおいて、ある時刻\(t\)で物体が\(v(t)=V_{equ}+\delta_{1}\)（\(\delta_{1}>0\)）で運動しているとします。元の運動方程式に代入すると、
+ </td>
+ </tr>
+   </table>
+   <br>
+   \(\dfrac{dv(t)}{dt} = -\dfrac{k}{m} \biggl((V_{equ}+\delta_{1})-\dfrac{mg}{k} \biggr)=-\dfrac{k}{m}\delta_{1}<0\)							 
+    <table width="800"> 
+ <tr>
+   <td>
+ \(\dfrac{dv(t)}{dt}\)は物体の加速度を表します。それが負の値になりました。     
+ つまり、物体が\(v(t)=V_{equ}+\delta_{1}\)（\(\delta_{1}>0\)）で運動していると、加速度は負の値になり、減速してゆくことがわかります。<br><br>
+ 次に 、ある時刻\(t\)で物体が\(v(t)=V_{equ}+\delta_{2}\)（\(\delta_{2}<0\)）で運動しているとします。元の運動方程式に代入すると、
+ </td>
+ </tr>
+    </table>
+      <br>
+      \(\dfrac{dv(t)}{dt} = -\dfrac{k}{m} \biggl((V_{equ}+\delta_{2})-\dfrac{mg}{k} \biggr)=-\dfrac{k}{m}\delta_{2}>0\)
+ <table width="800"> 
+ <tr>
+   <td>
+     <br>
+   物体が\(v(t)=V_{equ}+\delta_{2}\)（\(\delta_{2}<0\)）で運動していると、加速度は正の値になり、加速してゆくことがわかります。<br><br>
+     よって物体の速度\(v(t)\)は､時間が経つと\(V_{equ}\)に近づいてゆくことがわかります。以上から終端速度\(V_{ter}\)は､\(V_{ter}=V_{equ}=\dfrac{mg}{k}\)になることがわかりました。
+ </td>
+ </tr>
+ </table>	 
+<!--
+ <table width="800"> 
+ <tr>
+ <td>
+
+ </td>
+ </tr>
+ </table>
+ -->
+<!--
+  \(X\) <br>
+   [tex:{ \displaystyle
+b_n = \sum_{m=0}^{N-1} a_m
+}]
+-->
+
+<!--twitter-->
+<a href="https://twitter.com/share"
+   class="twitter-share-button"
+   data-url="https://akiraenv01.github.io/website/nonlinear/ndc_2.html"
+   data-text="平衡点（前編：原始的に考える）(Ak!ra Watanabe's homepageより)">Tweet
+</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);
+  js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+  fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<br>
+
+<!--facebook-->
+<div class="fb-like"
+     data-href="https://akiraenv01.github.io/website/nonlinear/ndc_2.html"
+     data-width=""
+     data-layout="box_count"
+     data-action="like"
+     data-size="small"
+     data-share="true">
+</div>
+<br>
+<br>
+
+<!--content-->
+ <table width="300"> 
+ <tr>
+   <td>
+<a href="ndc_1.html">
+<font color="#33bb00">
+ 前のページへ戻る
+
+</font>
+</a>
+   </td>
+   
+ <td>
+<a href="ndc_3.html">
+<font color="#33bb00">   
+  　次のページへ進む
+</font>
+</a>  
+ </td> 
+ </tr>
+ </table>
+
+ <br>
+<a href="nonlinear.html">
+<font color="#33bb00">
+ 「我流の非線型物理学」へ戻る
+</font>
+</a>
+<br>
+<br>
+<br>
+
+</div>
+</body>
+</html>
