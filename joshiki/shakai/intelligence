@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!--
+make  2016/9/26
+upgrade 2025/01/01  
+-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+   インフォメーションとインテリジェンスの区別  
+  </title>
+  <base href="https://akiraenv01.github.io/website/joshiki/shakai/">
+  <meta name="author" content="Nabepot">
+  <meta name="keywords" content="Nabepot,小中学校で学びたかった常識,情報学,インフォメーション,インテリジェンス"
+</head>
+
+<body>
+<!--facebook-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!--content-->
+<div align="center">
+<h1>
+   インフォメーションとインテリジェンスの区別  
+</h1>
+<br>
+<br>
+ <table width="800">
+ <tr>
+ <td>
+現代は情報社会と言われており、情報が大きな価値を持ちます。
+そこで現代を生きる我々にはインフォメーションとインテリジェンスという用語の違いを理解する必要があるでしょう。
+端的に言うと、インフォメーション(information)とは「生の情報」、つまりただ伝え聞いてそのままの状態の情報を指し、インテリジェンス(intelligence)とは『加工された情報』、つまり信憑性を吟味した上で解釈を施した情報を指します。
+さらに、『加工された情報』を得るために情報を収集してそれを評価や分析したりすることや、その『加工された情報』を利用したりすること、そしてそのような活動をする組織のことをインテリジェンスと呼ぶこともあります。
+インテリジェンスという言葉には、国家による諜報活動という一側面もあり、一般人にとって無関係な固い表現と思われるかもしれません。しかし、日本国が民主主義で政策を決めること、そして国際社会では各国のインテリジェンス活動が水面下で他国の動向を探り合っていることを考えると、政治家でない一国民にすらインフォメーションとインテリジェンスの区別は大切なのです。
+
+<br>
+<br>
+※ 人によってはinformationを「伝聞」、intelligenceを『情報』と訳す方がいらっしゃいますが、本稿ではinformationとintelligenceは適当な日本語訳をつけるのが困難と考え、「インフォメーション」と『インテリジェンス』という言葉遣いをしています。
+<br>
+<br>
+参考図書<br>
+情報亡国の危機ーインテリジェンス・リテラシーのすすめ　（中西輝政、東洋経済新報社）<br>
+イギリスの情報外交　（小谷賢、PHP新書）
+ </td>
+ </tr>
+ </table>
+
+<br>
+<br>
+
+<!--twitter-->
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://akiraenv01.github.io/website/joshiki/shakai/intelligence.html" data-text="インフォメーションとインテリジェンスの区別">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<br>
+
+<!--facebook-->
+<div class="fb-like" data-href="https://akiraenv01.github.io/website/joshiki/shakai/intelligence.html" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+
+<br>
+<br>
+
+<!--content-->
+<a href="shakai.html">
+<font color="#33bb00">
+小中学校で学びたかった社会科に戻る
+</font>
+</a>
+
+</div>
+</body>
+</html>
