@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!--
+make 2017/2/9
+upgrade 2026/01/01
+-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+   間接証明（Indirect proof） 例題１
+  </title>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta name="author" content="Ak!ra Watanabe">
+  <meta name="keywords" content="小中学校で学びたかった,算数,数学">
+  <base href="https://akiraenv01.github.io/website/joshiki/math/">
+</head>
+
+<body>
+<!--facebook-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!--content-->
+<div align="center">
+<h1>
+間接証明（Indirect proof） 例題１
+</h1>
+ 
+<br>
+<br>
+ <table width="800">
+ <tr>
+ <td>
+<b>間接証明（Indirect proof）</b> ...<br>
+ある事実を証明するためには、真っ直ぐ一本道を通る方法ではなく、ややひねった方法をとる方が有効である場合があります。<br>
+<br>
+（例題）<br>
+素数の個数は無限であることを証明してください。<br>
+<br>
+（考え方）<br>
+素数とは１と自分以外の数では割りきれない正の整数のことです。例えば、 \(2,3,5,7,11,...\)が素数です。
+   これら素数の個数が無限であることを証明します。この「個数が無限であること」を直接説明するのは難しいので、何か工夫ができないか考えます。<br>
+<br>
+<b>今回の問題の「個数が無限である」かどうかは "Yes" か "No" かで答えることができ、中間は有り得ません。</b><br>
+<br>
+そこで、いっそ素数の個数は有限である、と仮定してしまいます。そのうち最大の素数を \(P\) とします。
+そのとき以下のように \(2\) から \(P\) までのすべての数をかけた数に \(1\)を足した \(I\) という数を定義します。<br>
+
+<br>
+\begin{equation*}
+ I=2 \times 3 \times 4 \times 5 \times \cdots \times (P-2) \times (P-1) \times P +1
+\end{equation*}
+<br>
+この\(I\)を\(2\)から\(P\)のどの数字で割っても\(1\)余ります。つまりこの \(I\) は、 \(1\) か \(I\) 自身以外の数では割りきれない数、素数なのです。 
+明らかに \(I\) は \(P\) より大きい数なので、最大の素数を \(P\) とした仮定に矛盾します。<br>
+<br>
+よって素数の個数は有限である、という仮定では矛盾が起きるので、素数の個数は無限であることが証明されました。<br>
+<br>
+<br>
+以上のように、あえて結論と反対の主張を仮定して矛盾を導き出し、結果として元の結論の正しさを証明する方法を『背理法』といいます。
+ある主張の正当性を直接証明するのが難しい場合の間接証明として『背理法』は代表的な一例です。
+<br>
+<br>
+※余談ですが今回のように「"Yes"か"No"かで答えられる数学の主張の証明は『背理法』が有効である場合がある」ことは覚えておいて損はないでしょう。
+ </td>
+ </tr>
+ </table>
+
+<br>
+
+<!--twitter-->
+<a href="https://twitter.com/share"
+   class="twitter-share-button"
+   data-url="https://akiraenv01.github.io/website/joshiki/math/mst/mst_1001.html"
+   data-text="数学の方略 「間接証明 （Indirect proof）」 例題１ (Ak!ra Watanabe's homepageより)">Tweet
+</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);
+  js.id=id;
+  js.src=p+'://platform.twitter.com/widgets.js';
+  fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<br>
+
+<!--facebook-->
+<div class="fb-like"
+     data-href="https://akiraenv01.github.io/website/joshiki/math/mst/mst_1001.html"
+     data-width=""
+     data-layout="box_count"
+     data-action="like"
+     data-size="small"
+     data-share="true">
+</div>
+<br>
+<br>
+
+<!--content-->
+<a href="math_strategy.html">
+<font color="#33bb00">
+数学の方略（ほうりゃく）へ戻る
+</font>
+</a>
+<br>
+<br>
+<br>
+
+</div>
+</body>
+</html>
